@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasa Rush</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            color: #fff;
+            background-color: #0d0d0d;
+            background-image: linear-gradient(45deg, #1a1a1a 25%, transparent 25%), linear-gradient(-45deg, #1a1a1a 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #1a1a1a 75%), linear-gradient(-45deg, transparent 75%, #1a1a1a 75%), linear-gradient(45deg, #e6e6e6 25%, transparent 25%), linear-gradient(-45deg, #e6e6e6 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e6e6e6 75%), linear-gradient(-45deg, transparent 75%, #e6e6e6 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px, 20px 20px, 20px 0, 0 0, 0 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px;
+            font-size: 36px;
+            letter-spacing: 5px;
+            border-bottom: 1px solid #444;
+            font-weight: bold;
+            text-shadow: 0 0 10px #fff, 0 0 20px #888;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        nav button {
+            padding: 10px 20px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        nav button:hover {
+            background: #ccc;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .section h2 {
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .card {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        
+        .card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+        
+        .card:hover {
+            background: #262626;
+            transform: scale(1.02);
+        }
+        
+        .price {
+            float: right;
+            font-weight: bold;
+        }
+        
+        button.add {
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            background: white;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button.add:hover {
+            background: #ccc;
+        }
+        
+        select {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>BRASA RUSH</header>
+
+    <nav>
+        <button onclick="showPage('burgers')">Burgers</button>
+        <button onclick="showPage('acomp')">Acompanhamentos</button>
+        <button onclick="showPage('bebidas')">Bebidas</button>
+    </nav>
+
+    <div class="container">
+
+        <div id="burgers" class="section active">
+            <h2>🍔 Burgers</h2>
+            <div class="card"><img src="c:\Users\Home\Pictures\Camera Roll\meio-da-asa-empanado-com-farinha-panko-e-molho-de-queijo-02.webp"> Crispy Chicken <span class="price">R$22,90</span><br><button class="add" onclick="addItem(22.9)">Adicionar</button> <button class="add"
+                    onclick="removeItem(22.9)">Retirar</button></div>
+            <div class="card"><img src="c:\Users\Home\Pictures\Camera Roll\10117675.jpg"> Smash Brasa Duplo <span class="price">R$24,90</span><br><button class="add" onclick="addItem(24.9)">Adicionar</button> <button class="add" onclick="removeItem(24.9)">Retirar</button></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=100&h=100&fit=crop"> Brasa Triplo <span class="price">R$28,90</span><br><button class="add" onclick="addItem(28.9)">Adicionar</button> <button class="add" onclick="removeItem(28.9)">Retirar</button></div>
+            <div class="card"><img src="c:\Users\Home\Pictures\Camera Roll\images.jfif">Smash + Guaravita <span class="price">R$23,90</span><br><button class="add" onclick="addItem(23.9)">Adicionar</button> <button class="add" onclick="removeItem(23.9)">Retirar</button></div>
+            <div class="card"><img src="c:\Users\Home\Pictures\Camera Roll\Hamburguer-Tradicional.webp">Rush Cheese <span class="price">R$27,90</span><br><button class="add" onclick="addItem(27.9)">Adicionar</button> <button class="add" onclick="removeItem(27.9)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\capitao-dos-7-mares-e.jpg"> Brasa Bacon Cheddar <span class="price">R$28,90</span><br><button class="add" onclick="addItem(28.9)">Adicionar</button> <button class="add" onclick="removeItem(28.9)">Retirar</button></div>
+        </div>
+
+        <div id="acomp" class="section">
+            <h2>🍟 Acompanhamentos</h2>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=100&h=100&fit=crop"> Batata (P) <span class="price">R$9,90</span><br>
+                <button class="add" onclick="addItem(9.9)">Adicionar</button> <button class="add" onclick="removeItem(9.9)">Retirar</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=100&h=100&fit=crop"> Batata (M) <span class="price">R$13,90</span><br>
+                <button class="add" onclick="addItem(13.9)">Adicionar</button> <button class="add" onclick="removeItem(13.9)">Retirar</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?w=100&h=100&fit=crop"> Batata (G) <span class="price">R$18,90</span><br>
+                <button class="add" onclick="addItem(18.9)">Adicionar</button> <button class="add" onclick="removeItem(18.9)">Retirar</button>
+            </div>
+
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\5460-oferta2_imagem5.jpg"> Batata + Guaraná <span class="price">R$14,90</span><br>
+                <button class="add" onclick="addItem(14.9)">Adicionar</button> <button class="add" onclick="removeItem(14.9)">Retirar</button>
+            </div>
+
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\aneis-de-cebola-na-Air-Fryer-da-WAP-1080x640.webp" Onion Rings 6 <span class="price">R$14,90</span><br><button class="add" onclick="addItem(14.9)">Adicionar</button> <button class="add" onclick="removeItem(14.9)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\aneis_de_cebola_5c13feee8dee48.43279303-1024x494.jpg" Onion Rings 12 <span class="price">R$26,90</span><br><button class="add" onclick="addItem(26.9)">Adicionar</button> <button class="add"
+                    onclick="removeItem(26.9)">Retirar</button></div>
+        </div>
+
+        <div id="bebidas" class="section">
+            <h2>🥤 Bebidas</h2>
+
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\Vitamina-de-morango.jpg">Vitamina Morango R$12,90</span><br><button class="add" onclick="addItem(12.9)">Adicionar</button> <button class="add" onclick="removeItem(12.9)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\WhatsApp Image 2026-05-05 at 15.11.08.jpeg"> Vitamina Maracujá <span class="price">R$14,90</span><br><button class="add" onclick="addItem(14.9)">Adicionar</button> <button class="add" onclick="removeItem(14.9)">Retirar</button></div>
+
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\WhatsApp Image 2026-05-05 at 15.11.07 (1).jpeg"> Coca Lata <span class="price">R$6,00</span><br><button class="add" onclick="addItem(6)">Adicionar</button> <button class="add" onclick="removeItem(6)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\WhatsApp Image 2026-05-05 at 15.11.07 (2).jpeg"> Guaraná Lata <span class="price">R$6,00</span><br><button class="add" onclick="addItem(6)">Adicionar</button> <button class="add" onclick="removeItem(6)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\WhatsApp Image 2026-05-05 at 15.11.07.jpeg"> Guaravita <span class="price">R$3,00</span><br><button class="add" onclick="addItem(3)">Adicionar</button> <button class="add" onclick="removeItem(3)">Retirar</button></div>
+            <div class="card">
+                <img src="c:\Users\Home\Pictures\Camera Roll\agua.webp"> Água <span class="price">R$3,00</span><br><button class="add" onclick="addItem(3)">Adicionar</button> <button class="add" onclick="removeItem(3)">Retirar</button></div>
+        </div>
+
+    </div>
+
+    <div class="cart">
+        Total: R$ <span id="total">0</span>
+        <br>
+        <select id="pagamento">
+            <option>Forma de pagamento</option>
+            <option>Pix</option>
+            <option>Cartão</option>
+            <option>Dinheiro</option>
+        </select>
+        <button onclick="finalizar()">Finalizar Pedido</button>
+        <button onclick="cancelar()">Cancelar</button>
+    </div>
+
+    <script>
+        let total = 0;
+
+        function addItem(preco) {
+            total += preco;
+            document.getElementById('total').innerText = total.toFixed(2);
+        }
+
+        function showPage(id) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function finalizar() {
+            if (total <= 0) {
+                alert('Nenhum item no pedido');
+                return;
+            }
+            let pagamento = document.getElementById('pagamento').value;
+            alert('Pedido feito! Total: R$ ' + total.toFixed(2) + ' | Pagamento: ' + pagamento);
+        }
+
+        function removeItem(preco) {
+            total -= preco;
+            if (total < 0) total = 0;
+            document.getElementById('total').innerText = total.toFixed(2);
+        }
+
+        function cancelar() {
+            total = 0;
+            document.getElementById('total').innerText = '0';
+            alert('Pedido cancelado');
+        }
+    </script>
+
+</body>
+
+</html>
